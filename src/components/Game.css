@@ -1,0 +1,94 @@
+.game-container {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-container__points {
+    width: 80%;
+    text-align: right;
+    padding: 1rem;
+    border-bottom: 1px solid #f1f8ff;
+}
+
+.points__value {
+    font-weight: bold;
+}
+
+.game-container__general-title {
+
+}
+
+.game-container__message-title {
+
+}
+
+.message-title__value {
+    margin-left: 1rem;
+    color: rgba(255, 254, 127, 0.7);
+}
+
+.game-container__word-container {
+    margin: 1.5em;
+    padding: 1.5em;
+    border: 1rem solid rgba(255, 254, 127, 0.7);
+    display: flex;
+}
+
+.word-container__letter-value,
+.word-container__blank-square {
+    height: 100px;
+    width: 100px;
+    font-size: 4.5rem;
+    line-height: 1.5;
+    border: 2px solid #000000;
+    background-color: #fff;
+    color: #5253A3FF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.game-container__letter-container {
+
+}
+
+.letter-container__message {
+
+}
+
+.game-container__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__letter {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #5253A3FF;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.form__button-test-letter {
+    background: #5253A3FF;
+    padding: 1.5rem;
+    border: .2rem solid #f1f8ff;
+    color: #f1f8ff;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__button-test-letter:hover {
+    background: #3c3d77;
+}

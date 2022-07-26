@@ -1,13 +1,26 @@
+/* React */
+import { useState, useRef } from "react";
+
 /* CSS */
 import './Game.css';
 
-function Game({verifyLetter}) {
+const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters, guesses, wrongLetters, score}) => {
+    const [letter, setLetter] = useState("");
+    const letterInputRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        verifyLetter(letter);
+        setLetter("");
+        letterInputRef.current.focus();
+    };
+
     return (
         <div className="game-container">
 
             <p className="game-container__points">
                 <span className="points__value">
-                    Pontuação: 000
+                    Pontuação: {score}
                 </span>
             </p>
             <h1 className="game-container__general-title">
@@ -16,27 +29,35 @@ function Game({verifyLetter}) {
             <h3 className="game-container__message-title">
                 Dica da Palavra:
                 <span className="message-title__value">
-                    Dica...
+                    {pickedCategory}
                 </span>
             </h3>
 
             <div className="game-container__word-container">
-                <span className="word-container__letter-value">
-                    A
-                </span>
-                <span className="word-container__blank-square">
-
-                </span>
+                {letters.map((letter, index) =>
+                    guessedLetters.includes(letter) ? (
+                        <span className="word-container__letter-value" key={index}>
+                        {letter}
+                        </span>
+                    ) : (
+                        <span key={index} className="word-container__blank-square">
+                        </span>
+                    )
+                )}
             </div>
 
             <div className="game-container__letter-container">
                 <p className="letter-container__message">
+                    Você possui {guesses} tentativa(s), escolha uma letra
                 </p>
-
-                <form className="game-container__form">
-                    <input className="form-letter" type="text" name="form-letter" maxLength="1" required />
-                    <button>
-                        Jogar!
+                <form className="game-container__form" onSubmit={handleSubmit}>
+                    <input className="form__letter" type="text" name="form-form__letter" maxLength="1" required
+                           onChange={(e) => setLetter(e.target.value)}
+                           value={letter}
+                           ref={letterInputRef}
+                    />
+                    <button className="form__button-test-letter">
+                        ENVIAR
                     </button>
                 </form>
             </div>
@@ -45,13 +66,10 @@ function Game({verifyLetter}) {
                 <p className="wrong-letters-container__message">
                     Letras já Utilizadas:
                 </p>
-                <span className="wrong-letters-container__letter-value">
-                    a,
-                </span>
-                <span className="wrong-letters-container__letter-value">
-                    b,
-                </span>
-
+                {wrongLetters.map((letter, index) => (
+                    <span className="wrong-letters-container__letter-value" key={index}>{letter},
+                    </span>
+                ))}
             </div>
 
         </div>
