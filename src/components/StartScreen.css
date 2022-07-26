@@ -8,16 +8,20 @@
 }
 
 .start-screen-zone__button {
-    width: 30%;
     height: auto;
-    min-width: 30px;
+    max-width: 90vw;
     background: #5253A3FF;
-    padding: 1rem;
+    padding: 1.5rem;
     border: .2rem solid #f1f8ff;
     color: #f1f8ff;
     border-radius: 5px 5px 5px 5px;
     cursor: pointer;
+    font-weight: bold;
     font-size: 1.5rem;
     align-items: center;
     justify-content: center;
+}
+
+.start-screen-zone__button:hover {
+    background: #3c3d77;
 }
