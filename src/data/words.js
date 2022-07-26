@@ -6,3 +6,4 @@ export const wordsList = {
     programação: ["Linguagem", "Framework", "JavaScript", "React"],
     alimento: ["Arroz", "Feijão", "Carne", "Leite", "Ovo"],
 };
+

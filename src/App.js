@@ -70,6 +70,7 @@ function App() {
     // Process the Letter Inputed
     const verifyLetter = (letter) => {
         const normalizedLetter = letter.toLowerCase();
+
         if (
             guessedLetters.includes(normalizedLetter) ||
             wrongLetters.includes(normalizedLetter)

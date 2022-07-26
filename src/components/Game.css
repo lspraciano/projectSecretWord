@@ -92,3 +92,7 @@
 .form__button-test-letter:hover {
     background: #3c3d77;
 }
+
+.wrong-letters-container__letter-value {
+    text-transform: uppercase;
+}

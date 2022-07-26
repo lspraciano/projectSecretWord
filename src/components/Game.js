@@ -10,9 +10,16 @@ const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        verifyLetter(letter);
-        setLetter("");
-        letterInputRef.current.focus();
+
+        if (/^[a-z]/i.test(letter.normalize('NFD').replace(/[\u0300-\u036f]/g, ""))) {
+            verifyLetter(letter);
+            setLetter("");
+            letterInputRef.current.focus();
+        } else {
+            letterInputRef.current.focus();
+            alert("Apenas letras são aceitas com valor válido");
+        }
+
     };
 
     return (
