@@ -69,7 +69,9 @@ function App() {
 
     // Process the Letter Inputed
     const verifyLetter = (letter) => {
-        const normalizedLetter = letter.toLowerCase();
+        const normalizedLetter = letter.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        const setLetter = new Set();
+        const pureLetters = [];
 
         if (
             guessedLetters.includes(normalizedLetter) ||
@@ -78,10 +80,20 @@ function App() {
             return;
         }
 
-        if (letters.includes(normalizedLetter)) {
+        letters.forEach( (item) => {
+            const pureLetter = item.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            pureLetters.push(pureLetter);
+
+            if (pureLetter === normalizedLetter) {
+                setLetter.add(item);
+            }
+        })
+
+
+        if (pureLetters.includes(normalizedLetter)) {
             setGuessedLetters((actualGuessedLetters) => [
                 ...actualGuessedLetters,
-                letter,
+                ...setLetter,
             ]);
         } else {
             setWrongLetters((actualWrongLetters) => [

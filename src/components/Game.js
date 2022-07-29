@@ -15,7 +15,9 @@ const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters
             verifyLetter(letter);
             setLetter("");
             letterInputRef.current.focus();
+
         } else {
+            setLetter("");
             letterInputRef.current.focus();
             alert("Apenas letras são aceitas com valor válido");
         }
